@@ -1,21 +1,38 @@
 import React, { useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, Image, StatusBar } from "react-native";
 import { styles } from "./styles";
+
+import IllustrationImg from '../../assets/illustration.png';
+
+import { ButtonIcon } from "../../components/ButtonIcon";
 
 export function SignIn() {
   const [ text, setText ] = useState("");
 
   return (
     <View style={styles.container}>
-      <Text>Gameplay</Text>
-
-      <TextInput 
-        style={styles.input} 
-        onChangeText={setText} 
+      <StatusBar
+      barStyle = "light-content"
+      backgroundColor="transparent"
+      translucent
       />
-
-      <Text>Vc digitou {text} 
+     <Image source={IllustrationImg}/>
+     <View style = {styles.content}>
+      <Text style = {styles.title}>
+        Organize {'\n'}
+        suas jogatinas {'\n'}
+        facilmente
       </Text>
+      <Text style = {styles.subtitle}>
+        Crie grupos para seus games {'\n'}
+        favoritos com seus amigos
+      </Text>
+
+      <ButtonIcon 
+      title = "Entrar com Discord"
+      activeOpacity={0.7}
+      />
+     </View>
     </View>
   );
 }
